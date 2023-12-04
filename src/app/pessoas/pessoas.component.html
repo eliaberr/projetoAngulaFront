@@ -1,0 +1,93 @@
+<div class="display-6 bg-secondary text-center text-light p-3">
+  Cadastro de Pessoas
+</div>
+
+
+<div class="mb-3">
+  <label for="text">Nome</label>
+  <br>
+  <input type="text" placeholder="Digite Seu Nome Aqui" class="form-control" id="nome" >
+</div>
+<div class="mb-3">
+  <label for="text">Email</label>
+  <br>
+  <input type="text" placeholder="Digite Seu Email Aqui" class="form-control" id="email" >
+</div>
+<div class="mb-3">
+  <label for="text">Telefone</label>
+  <br>
+  <input type="number" placeholder="Digite Seu Telefone Aqui" class="form-control" id="telefone">
+</div>
+<div class="mb-3">
+  <label for="text">Endereço</label>
+  <br>
+  <input type="text" placeholder="Digite Seu Endereço Aqui" class="form-control" id="endereco">
+</div>
+<div class="mb-3">
+  <label for="text">Cep</label>
+  <br>
+  <input type="number" placeholder="Digite Seu Cep Aqui" class="form-control" id="cep">
+</div>
+<div class="mb-3">
+  <form action="">
+    <label for="text">Estado</label>
+    <select name="estados" id="estado" class="form-control" id="estado" >
+      <option value="">Acre (AC)</option>
+      <option value="">Alagoas (AL)</option>
+      <option value="">Amapá (AP)</option>
+      <option value="">Amazonas (AM)</option>
+      <option value="">Bahia (BA)</option>
+      <option value="">Ceará (CE)</option>
+      <option value="">Distrito Federal (DF)</option>
+      <option value="">Espírito Santo (ES)</option>
+      <option value="">Goiás (GO)</option>
+      <option value="">Maranhão (MA)</option>
+      <option value="">Mato Grosso (MT)</option>
+      <option value="">Mato Grosso do Sul (MS)</option>
+      <option value="">Minas Gerais (MG)</option>
+      <option value="">Pará (PA)</option>
+      <option value="">Paraíba (PB)</option>
+      <option value="">Paraná (PR)</option>
+      <option value="">Pernambuco (PE)</option>
+      <option value="">Piauí (PI)</option>
+      <option value="">Rio de Janeiro (RJ)</option>
+      <option value="">Rio Grande do Norte (RN)</option>
+      <option value="">Rio Grande do Sul (RS)</option>
+      <option value="">Rondônia (RO)</option>
+      <option value="">Roraima (RR)</option>
+      <option value="">Santa Catarina (SC)</option>
+      <option value="">São Paulo (SP)</option>
+      <option value="">Sergipe (SE)</option>
+      <option value="">Tocantins (TO)</option>
+    </select>
+  </form>
+</div>
+
+<button class="btn btn-success" (click)="save()">Cadastar</button>
+<button class="btn btn-danger me-2" (click)="cancel()">Remover</button>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Endereço</th>
+      <th scope="col">CEP</th>
+      <th scope="col">Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of pessoas">
+      <th scope="row">{{p.id}}</th>
+      <td>{{p.nome}}</td>
+      <td>{{p.email}}</td>
+      <td>{{p.telefone}}</td>
+      <td>{{p.endereco}}</td>
+      <td>{{p.cep}}</td>
+      <td>{{p.estado}}</td>
+    </tr>
+  </tbody>
+</table>
