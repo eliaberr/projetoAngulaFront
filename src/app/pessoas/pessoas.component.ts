@@ -13,7 +13,6 @@ export class PessoasComponent implements OnInit{
   pessoas: Pessoa[] = [];
   isEditing: boolean = false;
   submited: boolean = false;
-
   selectedPessoas: Pessoa = {} as Pessoa;
   formGroupPessoa: FormGroup;
 
@@ -33,44 +32,31 @@ export class PessoasComponent implements OnInit{
   ngOnInit(): void {
     this.pessoaService.getPessoas().subscribe(
       {
-        next: pessoas => this.pessoas = pessoas
+        next: (pessoas) => {
+
+          this.pessoas = pessoas;
+
+        }
       }
     )
   }
+
+
 
   save() {
 
     this.submited = true;
 
     if(this.formGroupPessoa.valid){
-     if (this.isEditing) {
-       //Atualiza os dados do produto selecionado
-      this.selectedPessoas.nome = this.formGroupPessoa.get("name")?.value;
-      this.selectedPessoas.email = this.formGroupPessoa.get("email")?.value;
-      this.selectedPessoas.telefone = this.formGroupPessoa.get("telefone")?.value;
-      this.selectedPessoas.endereco = this.formGroupPessoa.get("endereco")?.value;
-      this.selectedPessoas.cep = this.formGroupPessoa.get("cep")?.value;
-      this.selectedPessoas.estado = this.formGroupPessoa.get("estado")?.value;
-
-
-      this.pessoaService.update(this.selectedPessoas).subscribe({
-        next: () => {
-          this.formGroupPessoa.reset();
-          this.isEditing = false;
-          this.submited = false;
-        }
-      })
-    }
-    else {
       this.pessoaService.save(this.formGroupPessoa.value).subscribe({
-        next: Pessoa => {
-          this.pessoas.push(Pessoa);
+        next: pessoa =>{
+          this.pessoas.push(pessoa);
           this.formGroupPessoa.reset();
           this.submited = false;
         }
       })
     }
-    }
+
    }
 
   delete(pessoa: Pessoa){

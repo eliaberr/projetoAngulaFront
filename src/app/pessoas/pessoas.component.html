@@ -2,70 +2,43 @@
   Cadastro de Pessoas
 </div>
 
+<form [formGroup]="formGroupPessoa">
+<div class="form-group">
+  <label for="nome">Nome</label>
+  <br>
+  <input type="nome" placeholder="Digite Seu Nome Aqui" class="form-control" id="nome" formControlName="nome">
+</div>
 
-<div class="mb-3">
-  <label for="text">Nome</label>
+<div class="form-group">
+  <label for="email">Email</label>
   <br>
-  <input type="text" placeholder="Digite Seu Nome Aqui" class="form-control" id="nome" >
+  <input type="email" placeholder="Digite Seu Email Aqui" class="form-control" id="email" formControlName="email">
 </div>
-<div class="mb-3">
-  <label for="text">Email</label>
+<div class="form-group">
+  <label for="elefone">Telefone</label>
   <br>
-  <input type="text" placeholder="Digite Seu Email Aqui" class="form-control" id="email" >
+  <input type="telefone" placeholder="Digite Seu Telefone Aqui" class="form-control" id="telefone" formControlName="telefone">
 </div>
-<div class="mb-3">
-  <label for="text">Telefone</label>
+<div class="form-group">
+  <label for="enderco">Endereço</label>
   <br>
-  <input type="number" placeholder="Digite Seu Telefone Aqui" class="form-control" id="telefone">
+  <input type="endereco" placeholder="Digite Seu Endereço Aqui" class="form-control" id="endereco" formControlName="endereco">
 </div>
-<div class="mb-3">
-  <label for="text">Endereço</label>
+<div class="form-group">
+  <label for="cep">Cep</label>
   <br>
-  <input type="text" placeholder="Digite Seu Endereço Aqui" class="form-control" id="endereco">
+  <input type="cep" placeholder="Digite Seu Cep Aqui" class="form-control" id="cep" formControlName="cep">
 </div>
-<div class="mb-3">
-  <label for="text">Cep</label>
-  <br>
-  <input type="number" placeholder="Digite Seu Cep Aqui" class="form-control" id="cep">
-</div>
-<div class="mb-3">
-  <form action="">
-    <label for="text">Estado</label>
-    <select name="estados" id="estado" class="form-control" id="estado" >
-      <option value="">Acre (AC)</option>
-      <option value="">Alagoas (AL)</option>
-      <option value="">Amapá (AP)</option>
-      <option value="">Amazonas (AM)</option>
-      <option value="">Bahia (BA)</option>
-      <option value="">Ceará (CE)</option>
-      <option value="">Distrito Federal (DF)</option>
-      <option value="">Espírito Santo (ES)</option>
-      <option value="">Goiás (GO)</option>
-      <option value="">Maranhão (MA)</option>
-      <option value="">Mato Grosso (MT)</option>
-      <option value="">Mato Grosso do Sul (MS)</option>
-      <option value="">Minas Gerais (MG)</option>
-      <option value="">Pará (PA)</option>
-      <option value="">Paraíba (PB)</option>
-      <option value="">Paraná (PR)</option>
-      <option value="">Pernambuco (PE)</option>
-      <option value="">Piauí (PI)</option>
-      <option value="">Rio de Janeiro (RJ)</option>
-      <option value="">Rio Grande do Norte (RN)</option>
-      <option value="">Rio Grande do Sul (RS)</option>
-      <option value="">Rondônia (RO)</option>
-      <option value="">Roraima (RR)</option>
-      <option value="">Santa Catarina (SC)</option>
-      <option value="">São Paulo (SP)</option>
-      <option value="">Sergipe (SE)</option>
-      <option value="">Tocantins (TO)</option>
-    </select>
-  </form>
+<div class="form-group">
+    <label for="estado">Estado</label>
+    <input type="estado" placeholder="Digite Seu Estado Aqui" class="form-control" id="estado" formControlName="estado">
+
 </div>
 
 <button class="btn btn-success" (click)="save()">Cadastar</button>
-<button class="btn btn-danger me-2" (click)="cancel()">Remover</button>
+<button class="btn btn-danger me-2" (click)="cancel()">Limpar</button>
 
+</form>
 
 <table class="table table-striped">
   <thead>
@@ -80,14 +53,14 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let p of pessoas">
-      <th scope="row">{{p.id}}</th>
-      <td>{{p.nome}}</td>
-      <td>{{p.email}}</td>
-      <td>{{p.telefone}}</td>
-      <td>{{p.endereco}}</td>
-      <td>{{p.cep}}</td>
-      <td>{{p.estado}}</td>
+    <tr *ngFor="let pessoa of pessoas">
+      <th scope="row">{{pessoa.id}}</th>
+      <td>{{pessoa.nome}}</td>
+      <td>{{pessoa.email}}</td>
+      <td>{{pessoa.telefone}}</td>
+      <td>{{pessoa.endereco}}</td>
+      <td>{{pessoa.cep}}</td>
+      <td>{{pessoa.estado}}</td>
     </tr>
   </tbody>
 </table>
