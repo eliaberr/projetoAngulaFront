@@ -33,14 +33,11 @@ export class PessoasComponent implements OnInit{
     this.pessoaService.getPessoas().subscribe(
       {
         next: (pessoas) => {
-
           this.pessoas = pessoas;
-
         }
       }
     )
   }
-
 
 
   save() {
@@ -48,8 +45,30 @@ export class PessoasComponent implements OnInit{
     this.submited = true;
 
     if(this.formGroupPessoa.valid){
+
+      if (this.isEditing) {
+        this.selectedPessoas.nome = this.formGroupPessoa.get("nome")?.value;
+        this.selectedPessoas.email = this.formGroupPessoa.get("email")?.value;
+        this.selectedPessoas.telefone = this.formGroupPessoa.get("telefone")?.value;
+        this.selectedPessoas.endereco = this.formGroupPessoa.get("endereco")?.value;
+        this.selectedPessoas.cep = this.formGroupPessoa.get("cep")?.value;
+        this.selectedPessoas.estado = this.formGroupPessoa.get("estado")?.value;
+
+
+
+        this.pessoaService.update(this.selectedPessoas).subscribe({
+          next: () =>{
+            this.formGroupPessoa.reset();
+            this.isEditing = false;
+            this.submited = false;
+          }
+        })
+
+      }
+    }
+    else{
       this.pessoaService.save(this.formGroupPessoa.value).subscribe({
-        next: pessoa =>{
+        next: (pessoa) =>{
           this.pessoas.push(pessoa);
           this.formGroupPessoa.reset();
           this.submited = false;

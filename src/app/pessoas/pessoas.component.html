@@ -3,64 +3,65 @@
 </div>
 
 <form [formGroup]="formGroupPessoa">
-<div class="form-group">
-  <label for="nome">Nome</label>
-  <br>
-  <input type="nome" placeholder="Digite Seu Nome Aqui" class="form-control" id="nome" formControlName="nome">
-</div>
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <br>
+    <input type="nome" placeholder="Digite Seu Nome Aqui" class="form-control" id="nome" formControlName="nome">
+  </div>
 
-<div class="form-group">
-  <label for="email">Email</label>
-  <br>
-  <input type="email" placeholder="Digite Seu Email Aqui" class="form-control" id="email" formControlName="email">
-</div>
-<div class="form-group">
-  <label for="elefone">Telefone</label>
-  <br>
-  <input type="telefone" placeholder="Digite Seu Telefone Aqui" class="form-control" id="telefone" formControlName="telefone">
-</div>
-<div class="form-group">
-  <label for="enderco">Endereço</label>
-  <br>
-  <input type="endereco" placeholder="Digite Seu Endereço Aqui" class="form-control" id="endereco" formControlName="endereco">
-</div>
-<div class="form-group">
-  <label for="cep">Cep</label>
-  <br>
-  <input type="cep" placeholder="Digite Seu Cep Aqui" class="form-control" id="cep" formControlName="cep">
-</div>
-<div class="form-group">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <br>
+    <input type="email" placeholder="Digite Seu Email Aqui" class="form-control" id="email" formControlName="email">
+  </div>
+  <div class="form-group">
+    <label for="elefone">Telefone</label>
+    <br>
+    <input type="telefone" placeholder="Digite Seu Telefone Aqui" class="form-control" id="telefone" formControlName="telefone">
+  </div>
+  <div class="form-group">
+    <label for="enderco">Endereço</label>
+    <br>
+    <input type="endereco" placeholder="Digite Seu Endereço Aqui" class="form-control" id="endereco" formControlName="endereco">
+  </div>
+  <div class="form-group">
+    <label for="cep">Cep</label>
+    <br>
+    <input type="cep" placeholder="Digite Seu Cep Aqui" class="form-control" id="cep" formControlName="cep">
+  </div>
+  <div class="form-group">
     <label for="estado">Estado</label>
     <input type="estado" placeholder="Digite Seu Estado Aqui" class="form-control" id="estado" formControlName="estado">
 
-</div>
+  </div>
 
-<button class="btn btn-success" (click)="save()">Cadastar</button>
-<button class="btn btn-danger me-2" (click)="cancel()">Limpar</button>
+  <button class="btn btn-success" (click)="save()">Cadastar</button>
+  <button class="btn btn-danger me-2" (click)="cancel()">Limpar</button>
 
-</form>
+  </form>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Email</th>
-      <th scope="col">Telefone</th>
-      <th scope="col">Endereço</th>
-      <th scope="col">CEP</th>
-      <th scope="col">Estado</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let pessoa of pessoas">
-      <th scope="row">{{pessoa.id}}</th>
-      <td>{{pessoa.nome}}</td>
-      <td>{{pessoa.email}}</td>
-      <td>{{pessoa.telefone}}</td>
-      <td>{{pessoa.endereco}}</td>
-      <td>{{pessoa.cep}}</td>
-      <td>{{pessoa.estado}}</td>
-    </tr>
-  </tbody>
-</table>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+        <th scope="col">Telefone</th>
+        <th scope="col">Endereço</th>
+        <th scope="col">CEP</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pessoa of pessoas">
+        <th scope="row">{{pessoa.id}}</th>
+        <td>{{pessoa.nome}}</td>
+        <td>{{pessoa.email}}</td>
+        <td>{{pessoa.telefone}}</td>
+        <td>{{pessoa.endereco}}</td>
+        <td>{{pessoa.cep}}</td>
+        <td>{{pessoa.estado}}</td>
+      </tr>
+    </tbody>
+  </table>
+
